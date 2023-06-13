@@ -3,11 +3,9 @@ import { CircularProgress, Grid, Typography, InputLabel, MenuItem, FormControl, 
 import PlaceDetails from '../PlaceDetails/PlaceDetails';
 import useStyles from './styles.js';
 
-const List = ({ places, childClicked, isLoading }) => {
+const List = ({ places, childClicked, isLoading, type, setType, rating, setRating }) => {
     const classes = useStyles();
-    const [type, setType] = useState(['restaurants']);
-    const [rating, setRating] = useState('');
-
+    
     const [elRefs, setElRefs] = useState([]);
 
     useEffect(() =>{
@@ -40,7 +38,7 @@ const List = ({ places, childClicked, isLoading }) => {
                         <InputLabel>Rating</InputLabel>
                         <Select value={rating} onChange={(e) => setRating(e.target.value)}>
                             <MenuItem value={0}>All</MenuItem>
-                            <MenuItem value={3}>Above 3.0</MenuItem>
+                            <MenuItem value={3}> 3.0</MenuItem>
                             <MenuItem value={4}>Above 4.0</MenuItem>
                             <MenuItem value={4.5}>Above 4.5</MenuItem>
                         </Select>
